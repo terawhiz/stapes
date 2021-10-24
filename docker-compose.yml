@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  stapes:
+    restart: always
+    image: stapes
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+      - 1337:1337
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27017:27017

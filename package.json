@@ -1,12 +1,12 @@
 {
-  "name": "Stapes",
+  "name": "stapes",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/terawhiz/stapes.git",
   "author": "terawhiz",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "base-x": "^3.0.8",

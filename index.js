@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 
 // MONGODB CONNECT 
-mongoose.connect(`mongodb://${process.env.HOST}:27017/stapes`, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('DB CONNECTED'));
+mongoose.connect(`mongodb://mongo:27017/stapes`, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('DB CONNECTED'));
 
 
 app.use(express.static('public'))

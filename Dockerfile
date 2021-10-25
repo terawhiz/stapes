@@ -8,4 +8,4 @@ EXPOSE 3000
 EXPOSE 1337
 RUN chown -R node /usr/src/app
 USER node
-CMD ["npm", "start"]
+CMD ["./start.sh"]

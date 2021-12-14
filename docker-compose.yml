@@ -1,22 +1,6 @@
 version: "3.4"
 
 services:
-  mongo:
-    container_name: mongo
-    image: mongo
-    ports:
-      - 27017:27017
-    restart: always
-    healthcheck:
-      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo --quiet | grep 1
-      interval: 10s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
-    networks:
-      - stapes-network
-    volumes:
-      - mongo-data:/data/db
   stapes:
     restart: always
     image: stapes
@@ -26,20 +10,30 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 3000:3000
       - 1337:1337
-    healthcheck:
-      test: curl http://mongo:27017/
-      interval: 10s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
     networks:
       - stapes-network
     depends_on:
       - mongo
     links:
       - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 38000:27017
+    restart: unless-stopped
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo --quiet | grep 1
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    networks:
+      - stapes-network
+    volumes:
+      - /data/db:/data/db
 
 networks:
   stapes-network:

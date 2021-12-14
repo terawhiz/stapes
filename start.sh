@@ -1,6 +1,3 @@
-#!/bin/sh
+sleep 10s & cd app;npm run build;cd ..
+npm start
 
-#wait for mongodb
-wait 7s
-
-yarn start

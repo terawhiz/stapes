@@ -1,6 +1,5 @@
 **/.classpath
 **/.dockerignore
-**/.env
 **/.git
 **/.gitignore
 **/.project
@@ -21,3 +20,5 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 README.md
+
+mongo/data/db/***

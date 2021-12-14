@@ -1,7 +1,7 @@
 const yup = require("yup");
 
 const newUrlValidation = yup.object({
-  shortUrl: yup.string().max(30).required(),
+  shortUrl: yup.string().max(50).required(),
 
   longUrl: yup.string().required(),
 
@@ -10,7 +10,6 @@ const newUrlValidation = yup.object({
   creatorIP: yup.string().required(),
 });
 
-
 module.exports = {
-    newUrlValidation
-}
+  newUrlValidation,
+};

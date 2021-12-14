@@ -1,4 +1,6 @@
 * {
+  padding: 0%;
+  margin: 0%;
   box-sizing: border-box;
 }
 
@@ -22,6 +24,41 @@ body {
   height: 110px;
   overflow: hidden;
   position: relative;
+}
+
+.buttons {
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  text-align: center;
+}
+
+button {
+  color: black;
+  border: solid 4px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(30deg, #f13081, #62f5ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #62f5ff inset;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 34px;
+  border-radius: 8px;
+}
+
+button:hover {
+  box-shadow: none;
+  color: #62f5ff;
+}
+
+button:active {
+  box-shadow: 0 2px #62f5ff;
+  transform: translateY(2px);
 }
 
 label {
@@ -90,4 +127,37 @@ input:-webkit-autofill {
 
 ::selection {
   background: rgba(33, 150, 243, 0.3);
+}
+
+.counter-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h1 {
+  font-size: 95px;
+  font-family: sans-serif;
+  background: -webkit-linear-gradient(
+    180deg,
+    #ee9d06 0%,
+    #e6a822 50%,
+    #e0d422ec 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h2 {
+  font-size: 50px;
+  font-family: sans-serif;
+  background: -webkit-linear-gradient(
+    180deg,
+    #ee9d06 0%,
+    #e6a822 50%,
+    #e0d422ec 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

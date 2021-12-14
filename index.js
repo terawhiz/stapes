@@ -1,29 +1,41 @@
-'use strict'
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
+"use strict";
+require("dotenv").config();
+const path = require("path");
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
-const apiRoute = require('./router/apiRoute');
-const redirect = require('./middlewares/redirect');
+const apiRoute = require("./router/apiRoute");
+const redirect = require("./middlewares/redirect");
+
 const PORT = process.env.PORT || 3000;
+const MONGO_URL =
+  process.env.MONGO_PROD_URL || "mongodb://127.0.0.1:27017/stapes";
 
+mongoose.connect(
+  MONGO_URL,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => console.log("DB CONNECTED")
+);
 
-// MONGODB CONNECT 
-mongoose.connect(`mongodb://mongo:27017/stapes`, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('DB CONNECTED'));
+// REACT APP
+app.use(express.static(path.join(__dirname, "app/build")));
 
-
-app.use(express.static('public'))
-
+app.use(cors());
+app.use(express.static("public"));
 app.use(express.json());
-app.use('/api', apiRoute);
-app.get('/', (req, res) => {
-	res.status(200).sendFile(path.join(__dirname + '/templates/index.html'));
-} );
-app.get('/:id', redirect);
 
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "app/build", "index.html"));
+});
 
-app.listen(PORT, '0.0.0.0',() => {
-	console.log(`Listening on port ${PORT}`);
+app.use("/api", apiRoute);
+app.get("/:id", redirect);
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Listening on port ${PORT}`);
 });

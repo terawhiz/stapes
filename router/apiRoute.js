@@ -7,5 +7,5 @@ const { createShortURL } = require('../middlewares/createUrl');
 const { addUrlToDb } = require('../middlewares/processUrl');
 
 router.post('/new', createShortURL, addUrlToDb);
-router.get('/count/:id', counter);
+router.post('/count', counter);
 module.exports = router;

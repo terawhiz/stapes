@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Flex & grid main layout */
+.space-man {
+  @apply flex flex-col place-items-center space-y-[70px];
+}
+
+/* Logo */
+.logo {
+  @apply font-rancho text-center font-normal not-italic leading-[-236px] tracking-normal text-[190px] text-charcoal;
+}
+
+/* Shortener handler */
+.shortener-tools {
+  @apply flex justify-center gap-7;
+}
+
+.longurl {
+  @apply bg-lavenderBlue font-rancho focus:outline-none border-4 border-charcoal rounded-lg h-[70px] w-[540px] text-[37px] text-blackCoral p-4 shadow-2xl;
+}
+
+.shorten-button {
+  @apply select-none transition duration-500 ease-in-out hover:bg-charcoal transform hover:-translate-y-1 hover:scale-110  bg-charcoal h-[70px] w-[120px] focus:outline-none rounded-lg font-rancho text-[38px] text-[#9B9AA0] shadow-2xl;
+}
+
+/* Copy handler */
+.copy-tools {
+  @apply flex justify-center h-[60px] w-[480px] gap-4  bg-charcoal rounded-[15px] shadow-2xl;
+}
+
+.copy-text {
+  @apply bg-charcoal select-all w-[360px] cursor-pointer focus:outline-none font-rancho text-[36px] text-lavenderBlue p-1;
+}
